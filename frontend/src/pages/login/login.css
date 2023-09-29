@@ -1,0 +1,30 @@
+.container {
+  width: 500px;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+form h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 30px;
+  color: rgb(41, 125, 93);
+}
+input {
+  outline: none;
+}
+.form-control {
+  width: 100%;
+  border: 1px solid royalblue;
+  margin: 10px 0;
+  outline: none;
+  padding: 6px;
+  text-align: center;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
