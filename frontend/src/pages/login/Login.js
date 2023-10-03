@@ -10,8 +10,8 @@ const Login = () => {
   const [visible, setVisible] = useState("");
 
   return (
-    <div className="flex min-h-full items-center justify-center">
-      <div className="relative h-[700px] w-[400px] overflow-hidden rounded-3xl">
+    <div className="flex min-h-screen items-center justify-center">
+      <div className="relative h-[600px] w-[400px] overflow-hidden rounded-3xl">
         <div
           className="h-full w-full bg-[100%] "
           style={{
@@ -22,6 +22,9 @@ const Login = () => {
         ></div>
 
         <div className="absolute bottom-0 flex h-3/4 w-full flex-col rounded-t-3xl bg-cyan-300 bg-opacity-20 shadow ">
+          <h2 className="text-center text-white text-2xl mt-[-80px]">
+            Login to Your Account
+          </h2>
           <form action="#" className="mt-10 space-y-8 px-10 py-10 text-center">
             <div className="group relative">
               <input
@@ -70,7 +73,10 @@ const Login = () => {
                 )}
               </label>
             </div>
-            <button className=" h-10 w-full rounded-3xl bg-blue-900 text-white transition-all duration-300 hover: bg-blue-800">
+            <button
+              type="submit"
+              className=" h-10 w-full rounded-3xl bg-blue-900 text-white transition-all duration-300 hover: bg-blue-800"
+            >
               Login
             </button>
           </form>
