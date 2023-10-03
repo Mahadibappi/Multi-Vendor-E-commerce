@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { BsGithub } from "react-icons/bs";
+import { RxAvatar } from "react-icons/rx";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 const SignUp = () => {
@@ -8,10 +8,20 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState("");
   const [name, setName] = useState("");
+  const [avatar, setAvater] = useState(null);
+  const handleFile = (e) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setAvater(reader.result);
+      }
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  };
 
   return (
     <div className="flex min-h-screen items-center justify-center">
-      <div className="relative h-[600px] w-[400px] overflow-hidden rounded-3xl">
+      <div className="relative h-[650px] w-[400px] overflow-hidden rounded-3xl">
         <div
           className="h-full w-full bg-[100%] "
           style={{
@@ -21,7 +31,7 @@ const SignUp = () => {
           }}
         ></div>
 
-        <div className="absolute bottom-0 flex h-3/4 w-full flex-col rounded-t-3xl bg-cyan-300 bg-opacity-20 shadow ">
+        <div className="absolute bottom-0 flex h-3/4 w-full flex-col rounded-t-3xl bg-black bg-opacity-20 shadow ">
           <h2 className="text-center text-white text-2xl mt-[-80px]">
             Register As New User
           </h2>
@@ -91,6 +101,34 @@ const SignUp = () => {
                 )}
               </label>
             </div>
+            <div className="flex justify-center items-center">
+              <label htmlFor="avatar"></label>
+              <span className="text-gray-300 ml-5 h-10 w-10 overflow-hidden rounded-full">
+                {avatar ? (
+                  <img
+                    src={avatar}
+                    alt="avatar"
+                    className="h-full w-full object-cover rounded-full"
+                  />
+                ) : (
+                  <RxAvatar className="w-10 h-10" />
+                )}
+              </span>
+              <label
+                htmlFor="file-input"
+                className="ml-5 flex items-center justify-center px-4 py-2 border border-gray-300 rounded-3xl  shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
+              >
+                <span>Upload a file</span>
+                <input
+                  type="file"
+                  name="avatar"
+                  id="file-input"
+                  accept=".jpg,.jpeg,.png"
+                  onChange={handleFile}
+                  className="sr-only"
+                />
+              </label>
+            </div>
             <button
               type="submit"
               className=" h-10 w-full rounded-3xl bg-blue-900 text-white transition-all duration-300 hover: bg-blue-800"
@@ -98,11 +136,11 @@ const SignUp = () => {
               Register
             </button>
           </form>
-          <p className="gap-2 text-center text-white">
+          <p className="gap-2 text-center text-white ">
             Already have an account?
             <Link
               to={"/login"}
-              className="font-semibold text-sky-400 hover:text-blue-800"
+              className="font-semibold text-sky-400 hover:text-blue-800 "
             >
               Sign In
             </Link>

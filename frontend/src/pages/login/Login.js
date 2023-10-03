@@ -21,7 +21,7 @@ const Login = () => {
           }}
         ></div>
 
-        <div className="absolute bottom-0 flex h-3/4 w-full flex-col rounded-t-3xl bg-cyan-300 bg-opacity-20 shadow ">
+        <div className="absolute bottom-0 flex h-3/4 w-full flex-col rounded-t-3xl bg-black bg-opacity-20 shadow ">
           <h2 className="text-center text-white text-2xl mt-[-80px]">
             Login to Your Account
           </h2>
@@ -91,7 +91,7 @@ const Login = () => {
           </p>
           <Link
             to={"https://github.com"}
-            className="border-white-500 group m-auto my-5 inline-flex h-12 w-[320px] items-center justify-center space-x-2 rounded-3xl border px-4 py-2 transition-colors duration-300 hover:border-black hover:bg-black focus:outline-none"
+            className="border-white-500 group m-auto my-5 inline-flex h-12 w-[320px] items-center justify-center space-x-2 rounded-3xl border px-4 py-2 transition-colors duration-300 hover:border-black hover:bg-blue-800 focus:outline-none"
           >
             <span className="h-2.6 w-5 fill-current text-white">
               <BsGithub />
