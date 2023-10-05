@@ -3,6 +3,8 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
+const ErrorHandler = require("./middleware/Error");
 
 //configuration
 dotenv.config();
@@ -10,6 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
 app.use(cors());
 
 //Routes
@@ -27,3 +30,5 @@ mongoose
   })
 
   .catch((error) => console.log(`${error} did not connected`));
+
+app.use(ErrorHandler);
