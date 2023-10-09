@@ -3,15 +3,15 @@ const { upload } = require("../Multer");
 const ErrorHandler = require("../utils/ErrorHandler");
 const router = express.Router();
 const path = require("path");
-const User = "../models/userModel.js";
+const User = require("../models/userModel");
 
 router.post("/create-user", upload.single("file"), async (req, res, next) => {
   const { name, email, password } = req.body;
 
-  // const existEmail = await User.findOne({ email });
-  // if (existEmail) {
-  //   return next(new ErrorHandler("Email already exist"));
-  // }
+  const existEmail = await User.findOne({ email });
+  if (existEmail) {
+    return next(new ErrorHandler("Email already exist"));
+  }
 
   const filename = req.file.filename;
   const fileUrl = path.join(filename);
@@ -22,13 +22,10 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
     avatar: fileUrl,
   };
   const newUser = await User.create(userData);
-  res.status(
-    201,
-    json({
-      success: true,
-      newUser,
-    })
-  );
+  res.status(201).json({
+    success: true,
+    newUser,
+  });
 });
 
 module.exports = router;

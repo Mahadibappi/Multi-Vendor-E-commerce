@@ -5,7 +5,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 const ErrorHandler = require("./middleware/Error");
-const user = require("./controller/userController");
+const user = require("./controller/userController.js");
 
 //configuration
 dotenv.config();
